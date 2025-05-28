@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phone Specs Database</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Phone Specs Database</h1>
+
+  <form id="phoneForm">
+    <h2>Add a Phone</h2>
+    <label>Brand: <input type="text" name="brand" required></label><br>
+    <label>Score: <input type="number" name="score" required></label><br>
+    <label>Release Date: <input type="date" name="releaseDate" required></label><br>
+    <button type="submit">Add Phone</button>
+  </form>
+
+  <h2>Brands</h2>
+  <ul id="brandList"></ul>
+
+  <script src="script.js"></script>
+</body>
+</html>
