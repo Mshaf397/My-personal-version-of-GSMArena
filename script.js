@@ -30,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const brandList = document.getElementById('brandList');
 
     form.addEventListener('submit', e => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const phone = {
-        brand: data.get('brand').trim(),
-        score: parseInt(data.get('score'), 10),
-        releaseDate: data.get('releaseDate')
-      };
+  e.preventDefault();
+  const data = new FormData(form);
+  const phone = {
+    brand: data.get('brand').trim(),
+    model: data.get('model').trim(),
+    score: parseInt(data.get('score'), 10),
+    releaseDate: data.get('releaseDate')
+  };
 
       const phones = getPhones();
       phones.push(phone);
@@ -63,10 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const sorted = sortPhonesByDateDesc(phones);
 
       phoneList.innerHTML = sorted.map(phone => `
-        <li>
-          <strong>Score:</strong> ${phone.score},
-          <strong>Release Date:</strong> ${new Date(phone.releaseDate).toLocaleDateString()}
-        </li>
+  <li>
+    <strong>Model:</strong> ${phone.model} |
+    <strong>Score:</strong> ${phone.score} |
+    <strong>Release Date:</strong> ${new Date(phone.releaseDate).toLocaleDateString()}
+  </li>
+
       `).join('');
     } else {
       brandHeader.textContent = "Brand not found.";
